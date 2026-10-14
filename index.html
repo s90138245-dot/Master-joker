@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MESTER JOKER 🃏 | وارد دنیای جنون شو</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Vazirmatn',sans-serif}
+:root{--purple:#b026ff;--green:#39ff14;--red:#ff073a;--bg:#050208}
+body{background:var(--bg);color:#fff;overflow-x:hidden}
+canvas#fx{position:fixed;inset:0;z-index:0;opacity:.7}
+.smoke{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(600px 400px at 15% 10%,#b026ff44,transparent 70%),radial-gradient(700px 500px at 85% 20%,#39ff1428,transparent 70%),radial-gradient(800px 600px at 50% 100%,#ff073a22,transparent 70%);filter:blur(10px);animation:sm 8s ease-in-out infinite alternate}
+@keyframes sm{to{transform:scale(1.1) translateY(-20px)}}
+.wrap{position:relative;z-index:2}
+.nav{position:sticky;top:12px;margin:12px auto;max-width:1050px;display:flex;align-items:center;justify-content:space-between;padding:12px 18px;background:rgba(10,5,20,.7);backdrop-filter:blur(16px);border:1px solid #b026ff55;border-radius:20px;box-shadow:0 0 30px #b026ff33}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:1.2rem}
+.face{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-size:1.7rem;background:linear-gradient(135deg,#b026ff,#39ff14);box-shadow:0 0 20px #b026ff;animation:spin 6s linear infinite}
+@keyframes spin{0%{transform:rotate(-8deg)}50%{transform:rotate(8deg) scale(1.05)}100%{transform:rotate(-8deg)}}
+.logo small{display:block;font-size:.7rem;color:#39ff14;letter-spacing:1px}
+.menu{display:flex;gap:16px}.menu a{color:#ccc;text-decoration:none;font-weight:700;font-size:.9rem}.menu a:hover{color:var(--green);text-shadow:0 0 10px var(--green)}
+.live-dot{display:flex;align-items:center;gap:8px;background:#14050a;border:1px solid var(--red);padding:8px 16px;border-radius:30px;color:#fff;text-decoration:none;font-weight:900;font-size:.9rem;box-shadow:0 0 18px #ff073a88}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--red);animation:bl 1s infinite}
+@keyframes bl{50%{opacity:.2}}
+.hero{max-width:1050px;margin:30px auto;padding:50px 20px 20px;text-align:center}
+.status{display:inline-flex;align-items:center;gap:8px;border:1px solid #39ff1466;background:#39ff1412;padding:7px 18px;border-radius:30px;font-size:.85rem;color:#baffc9}
+.glitch{font-size:clamp(3rem,9vw,6.5rem);font-weight:900;line-height:1.1;margin:18px 0;position:relative}
+.glitch span{background:linear-gradient(90deg,#fff,#b026ff,#39ff14,#fff);background-size:300%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:fl 4s linear infinite}
+@keyframes fl{to{background-position:300%}}
+.tag{font-size:1.3rem;color:#e9d5ff}.tag b{color:var(--green);text-shadow:0 0 15px var(--green)}
+.story{max-width:680px;margin:16px auto;color:#b8b3c9;line-height:2}
+.btnrow{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.btn{padding:16px 28px;border-radius:16px;text-decoration:none;font-weight:900;font-size:1.05rem;overflow:hidden;transition:.25s;display:flex;align-items:center;gap:8px}
+.btn-ap{background:linear-gradient(90deg,#ff073a,#b026ff);color:#fff;box-shadow:0 10px 35px #ff073a55;border:1px solid #ffffff33}
+.btn-rb{background:linear-gradient(90deg,#00e676,#00b0ff);color:#04140a;box-shadow:0 10px 35px #00e67644}
+.btn:hover{transform:translateY(-4px) scale(1.03)}
+.btn small{font-size:.75rem;opacity:.85;direction:ltr}
+.mar{margin:30px 0;border-block:2px solid #b026ff66;background:#0f0518;white-space:nowrap;overflow:hidden;padding:12px 0;color:#d8b4fe;font-weight:900}
+.mar div{display:inline-block;animation:mv 18s linear infinite}
+@keyframes mv{to{transform:translateX(50%)}}
+.sec{max-width:1050px;margin:0 auto;padding:30px 20px}
+h2.t{font-size:2rem;margin-bottom:6px}.h2sub{color:#888;margin-bottom:22px}
+h2.t i{font-style:normal;background:linear-gradient(90deg,var(--purple),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.cardx{background:linear-gradient(180deg,rgba(176,38,255,.12),rgba(0,0,0,.4));border:1px solid #ffffff1f;padding:26px 20px;border-radius:20px;backdrop-filter:blur(8px);transition:.25s}
+.cardx:hover{border-color:var(--green);box-shadow:0 0 30px #39ff1433;transform:translateY(-5px)}
+.cardx .em{font-size:2.6rem}
+.cardx h3{margin:10px 0 6px}.cardx p{color:#bdb8cc;font-size:.93rem;line-height:1.9}
+.sched{display:grid;grid-template-columns:1.1fr .9fr;gap:14px}
+@media(max-width:800px){.sched{grid-template-columns:1fr}.menu{display:none}}
+.days{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.d{background:#0e0a1a;border:1px dashed #b026ff55;padding:14px;border-radius:14px;display:flex;justify-content:space-between;align-items:center}
+.d b{font-size:.95rem}.d span{font-size:.8rem;color:var(--green);background:#39ff1415;border:1px solid #39ff1444;padding:4px 10px;border-radius:20px}
+.d.hot{border-style:solid;border-color:var(--green);box-shadow:0 0 20px #39ff1433}
+.timer{background:radial-gradient(circle at top,#b026ff33,transparent 60%),#0b0716;border:2px solid var(--purple);border-radius:22px;padding:30px 20px;text-align:center;box-shadow:0 0 40px #b026ff44}
+.timer h3{color:#e9d5ff}.clock{font-size:3.2rem;font-weight:900;direction:ltr;letter-spacing:6px;color:var(--green);text-shadow:0 0 25px var(--green);margin:10px 0}
+.bar{height:10px;background:#ffffff15;border-radius:20px;overflow:hidden;margin-top:12px}.bar i{display:block;height:100%;width:40%;background:linear-gradient(90deg,var(--purple),var(--green));border-radius:20px;animation:bb 2s ease-in-out infinite alternate}
+@keyframes bb{to{width:85%}}
+.law{border:1px solid #ff073a66;background:linear-gradient(135deg,#ff073a18,#b026ff18);border-radius:22px;padding:28px;text-align:center;position:relative;overflow:hidden}
+.law::after{content:'NO SPAM';position:absolute;left:-10px;top:10px;rotate:-20deg;font-weight:900;font-size:4rem;opacity:.07;letter-spacing:5px}
+.law h3{font-size:1.7rem}.law p{color:#e5c9cf;margin:10px auto;max-width:650px;line-height:2}
+.gun{display:inline-block;margin-top:10px;background:linear-gradient(90deg,#ff073a,#ff8a00);padding:14px 30px;border-radius:14px;font-weight:900;font-size:1.2rem;box-shadow:0 0 30px #ff073a77;animation:bl 1.2s infinite}
+.duo{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.duo a{border-radius:22px;padding:30px 22px;text-decoration:none;color:#fff;display:flex;gap:16px;align-items:center;transition:.25s;border:1px solid #ffffff22}
+.duo a:hover{transform:scale(1.02) translateY(-4px)}
+.duo .big{font-size:3rem}
+.duo h3{font-size:1.3rem}.duo p{direction:ltr;opacity:.85;font-size:.9rem}.duo span.go{margin-top:8px;display:inline-block;background:#ffffff25;padding:6px 16px;border-radius:20px;font-size:.85rem;font-weight:700}
+.ap{background:linear-gradient(135deg,#2b0210 0%,#ff073a 60%,#b026ff 100%)}
+.rb2{background:linear-gradient(135deg,#022a1a,#00c853 60%,#00b0ff 100%);color:#fff!important}
+footer{text-align:center;padding:35px 20px;color:#777;font-size:.9rem}
+footer b{color:var(--green)}
+#top{position:fixed;bottom:18px;left:18px;width:50px;height:50px;border-radius:50%;border:1px solid var(--green);background:#0a0a0a;color:var(--green);font-size:1.3rem;cursor:pointer;display:none;z-index:5;box-shadow:0 0 20px #39ff1466}
+</style>
+</head>
+<body>
+<canvas id="fx"></canvas><div class="smoke"></div>
+<div class="wrap">
+<div class="nav">
+<div class="logo"><div class="face">🃏</div><div>مستر جوکر<small>MESTER JOKER</small></div></div>
+<div class="menu"><a href="#vibe">فضا</a><a href="#time">کنداکتور</a><a href="#law">قانون جنگل</a><a href="#join">اتصال</a></div>
+<a class="live-dot" href="https://www.aparat.com/shorts/user/MESTER.JOKER/shorts" target="_blank"><span class="dot"></span> <span id="liveTxt">هر روز ساعت ۶ اینجام</span></a>
+</div>
+
+<div class="hero">
+<div class="status">⚡ جوکر برگشته • فصل جدید جنون شروع شد</div>
+<h1 class="glitch"><span>مستر جوکر</span></h1>
+<p class="tag">اینجا <b>تماشاچی</b> نداریم، همه <b>هم‌دست جرم</b> هستن! 🎭🔥</p>
+<p class="story">هر غروب ساعت ۶، چراغ‌های شهر خاموش میشه و استریم جوکر روشن! از بازی‌های خفن و ترسناک تا چالش‌های مجازاتی و کاستوم خنده‌دار... اگه دنبال یه جای خشک و رسمی هستی، اشتباهی اومدی رفیق. اینجا قانون رو جوکر می‌نویسه!</p>
+<div class="btnrow">
+<a class="btn btn-ap" href="https://www.aparat.com/shorts/user/MESTER.JOKER/shorts" target="_blank">📺 ورود به آپارات <small>MESTER.JOKER</small></a>
+<a class="btn btn-rb" href="https://rubika.ir/MesterJOKER" target="_blank">💬 پایگاه روبیکا <small>@MesterJOKER</small></a>
+</div>
+</div>
+
+<div class="mar"><div>🃏 هر روز ساعت ۶ عصر لایو هستیم ✦ اسپم = بن ✦ چت فعال = جایزه ✦ جوکر شوخی نداره ✦ هر روز ساعت ۶ عصر لایو هستیم ✦ اسپم = بن ✦ چت فعال = جایزه ✦ جوکر شوخی نداره ✦&nbsp;</div></div>
+
+<div id="vibe" class="sec">
+<h2 class="t">چرا اینجا <i>فرق</i> داره؟ 🤡</h2>
+<p class="h2sub">سه دلیلی که بچه‌ها هر روز برمی‌گردن</p>
+<div class="grid3">
+<div class="cardx"><div class="em">🎮</div><h3>گیم‌پلی وحشی</h3><p>با جوکر هیچ مچی کسل‌کننده نیست، یا می‌بریم با اقتدار یا می‌بازیم با سوژه خنده. پر از انرژی و کل‌کل!</p></div>
+<div class="cardx"><div class="em">🎁</div><h3>جایزه و کاستوم</h3><p>شب‌های ویژه، شب شکار جایزه‌ست! کاستوم روم، چالش حدس، و قرعه‌کشی بین فعال‌ترین‌های چت.</p></div>
+<div class="cardx"><div class="em">😈</div><h3>چتِ خانواده جوکر</h3><p>اینجا همه همدیگه رو می‌شناسن. اگه باحال باشی می‌مونی، فحش و حاشیه؟ مستقیم پرواز به بیرون!</p></div>
+</div>
+</div>
+
+<div id="time" class="sec">
+<h2 class="t">کنداکتور <i>جنون</i> ⏰</h2>
+<p class="h2sub">هر روز ساعت ۶ عصر! دیر بیای اسپویل شدی</p>
+<div class="sched">
+<div class="days">
+<div class="d"><b>شنبه</b><span>18:00 🔴</span></div>
+<div class="d"><b>یکشنبه</b><span>18:00 🔴</span></div>
+<div class="d"><b>دوشنبه</b><span>18:00 🔴</span></div>
+<div class="d"><b>سه‌شنبه</b><span>18:00 🔴</span></div>
+<div class="d"><b>چهارشنبه</b><span>18:00 🔴</span></div>
+<div class="d hot"><b>پنجشنبه</b><span>18:00 👑</span></div>
+<div class="d hot"><b>جمعه</b><span>18:00 👑</span></div>
+<div class="d"><b>هر شب</b><span>ساعت ۶ 🔥</span></div>
+</div>
+<div class="timer">
+<h3>⏳ تا باز شدن درهای تیمارستان...</h3>
+<div class="clock"><span id="h">00</span>:<span id="m">00</span>:<span id="s">00</span></div>
+<p style="color:#aaa;font-size:.9rem" id="msg">آماده باش، رأس ۶ میریم تو گیم!</p>
+<div class="bar"><i></i></div>
+</div>
+</div>
+</div>
+
+<div id="law" class="sec">
+<div class="law">
+<h3>📜 قانون جنگل جوکر 🔫</h3>
+<p>رفیق، اینجا خونه جوکره! فقط یه قانون بزرگ داریم که خط قرمزه: <b style="color:#39ff14">اسپم ممنوع!</b> پشت سر هم پیام نده، لینک ننداز، تبلیغ نکن. احترام بذار وگرنه...</p>
+<div class="gun">⚠️ اسپم ندید شروع گن! 🔫🤡</div>
+</div>
+</div>
+
+<div id="join" class="sec">
+<h2 class="t">به تیم <i>جوکر</i> وصل شو 🔗</h2>
+<p class="h2sub">دو تا پایگاه داریم، هر دو رو بگیر که جا نمونی</p>
+<div class="duo">
+<a class="ap" href="https://www.aparat.com/shorts/user/MESTER.JOKER/shorts" target="_blank"><div class="big">📺</div><div><h3>آپارات مستر جوکر</h3><p>MESTER.JOKER</p><span class="go">بزن بریم تماشا ←</span></div></a>
+<a class="rb2" href="https://rubika.ir/MesterJOKER" target="_blank"><div class="big">🚀</div><div><h3>کانال روبیکا</h3><p>@MesterJOKER</p><span class="go">عضو خانواده شو ←</span></div></a>
+</div>
+</div>
+
+<footer><p>🃏 طراحی شده در تیمارستان <b>مستر جوکر</b> — ساعت ۶ غروب، قرارمون سر جاشه!</p><p style="direction:ltr;margin-top:6px;opacity:.6">© 2026 MESTER JOKER • WHY SO SERIOUS?</p></footer>
+</div>
+<button id="top">⬆</button>
+<script>
+const c=document.getElementById('fx'),x=c.getContext('2d');let W,H,P=[];
+function rs(){W=c.width=innerWidth;H=c.height=innerHeight}
+rs();addEventListener('resize',rs);
+for(let i=0;i<70;i++)P.push({a:Math.random()*W,b:Math.random()*H,s:Math.random()*2.5+.5,v:Math.random()*.7+.2,col:Math.random()>.5?'176,38,255':'57,255,20',o:Math.random()*.6+.2});
+(function an(){x.clearRect(0,0,W,H);P.forEach(p=>{p.b-=p.v;if(p.b<0){p.b=H;p.a=Math.random()*W}x.beginPath();x.arc(p.a,p.b,p.s,0,7);x.fillStyle=`rgba(${p.col},${p.o})`;x.shadowBlur=10;x.shadowColor=`rgba(${p.col},1)`;x.fill()});requestAnimationFrame(an)})();
+function tm(){const n=new Date();let g=new Date();g.setHours(18,0,0,0);const liveTxt=document.getElementById('liveTxt'),msg=document.getElementById('msg');
+if(n>=g&&n.getHours()<20){liveTxt.textContent='🔴 الان لایویم! بزن بیا';msg.textContent='🔴 لایو شروع شده! بدو بیا تو استریم!';document.getElementById('h').textContent='00';document.getElementById('m').textContent='00';document.getElementById('s').textContent='00';return}
+if(n>=g)g.setDate(g.getDate()+1);let d=g-n;let h=Math.floor(d/36e5),m=Math.floor(d%36e5/6e4),s=Math.floor(d%6e4/1e3);
+document.getElementById('h').textContent=String(h).padStart(2,'0');
+document.getElementById('m').textContent=String(m).padStart(2,'0');
+document.getElementById('s').textContent=String(s).padStart(2,'0');}
+setInterval(tm,1000);tm();
+const tb=document.getElementById('top');addEventListener('scroll',()=>tb.style.display=scrollY>400?'block':'none');tb.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+document.querySelectorAll('.menu a').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'})}));
+</script>
+</body>
+                                            </html>
